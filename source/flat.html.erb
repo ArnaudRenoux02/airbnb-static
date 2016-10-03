@@ -1,0 +1,8 @@
+<ul class="list-inline text-center">
+  <% ["card-paris", "card-brussels", "card-london"].each do |flat| %>
+    <li>
+      <%= image_tag "#{flat}.jpeg", class: "card" %>
+      <h3><%= city%></h3>
+    </li>
+  <% end %>
+</ul>

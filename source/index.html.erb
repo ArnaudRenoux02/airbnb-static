@@ -54,56 +54,31 @@ title: Le Wagon Middleman boilerplate
       </div>
     </div>
 
+
     <!-- Your cards code -->
     <div class="cards">
       <div class="container">
         <h2 class="text-center">Your next trip !</h2>
 
           <div class="row">
-
+          <% data.flats.each do |owner, infos| %>
             <div class="col-xs-12 col-sm-4 col-md-4"">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "card-paris.jpg" %>');">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "#{infos.background_image}" %>');">
                 <div class="top-left">
-                  <p>Paris</p>
+                  <p><%= "#{infos.city}" %></p>
                 </div>
                 <div class="bottom-left">
-                  <p class="name_home">Seb's Home</p>
-                  <p>Charming Room</p>
+                  <p class="name_home"><%= "#{infos.name}" %></p>
+                  <p><%= "#{infos.description}" %></p>
                 </div>
-                <%= image_tag "seb.jpg", alt: "Image profil", class: "profil avatar" %>
+                <%= image_tag "#{infos.profil_picture}", alt: "Image profil", class: "profil avatar" %>
               </div>
             </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-4"">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "card-brussels.jpeg" %>');">
-                <div class="top-left">
-                  <p>Brussels</p>
-                </div>
-
-                <div class="bottom-left">
-                  <p class="name_home">Anne's Home</p>
-                  <p>Lovel house</p>
-                </div>
-                <%= image_tag "anne.jpg", alt: "image profil", class: "profil avatar" %>
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4 col-md-4"">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "card-london.jpeg" %>');">
-                <div class="top-left">
-                  <p>London</p>
-                </div>
-                <div class="bottom-left">
-                  <p class="name_home">Romain's Home</p>
-                  <p>Nice flat in Picadilly</p>
-                </div>
-
-                <%=image_tag "romain.jpeg", alt:"image profil", class: "profil avatar" %>
-              </div>
-            </div>
+          <% end %>
           </div>
       </div>
     </div>
+
     <!-- Your newsletter code -->
     <div class="newsletter">
       <h2>Get news from us</h2>
